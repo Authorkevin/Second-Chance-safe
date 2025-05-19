@@ -1,0 +1,300 @@
+{% extends 'base.html' %}
+
+{% block title %}Oklahoma Voter Rights Quiz{% endblock %}
+
+{% block site_title %}Second Chance Movement Inc.{% endblock %}
+
+{% block content %}
+    <section class="bg-blue-50 py-8 rounded-lg shadow-md mb-8">
+        <div class="container mx-auto text-center">
+            <h1 class="text-2xl font-semibold text-gray-700">Oklahoma Voter Rights Quiz</h1>
+            <p class="text-gray-600 mt-2">Understand your rights as a voter in Oklahoma and participate confidently in local elections.</p>
+        </div>
+    </section>
+
+    <div class="container mx-auto py-6">
+    	{% if result %}
+    	<div id="quiz-results" class="bg-white rounded-lg shadow-md p-6" action="" method="post">
+		<h1 class="text-xl text-center font-extrabold text-green-800"> {{ result_title }} </h1>
+                <p class="mt-6 font-semibold text-green-700 text-center">{{ result }}</p>
+            </div>
+            <br />
+            {% endif %}
+        <form id="voter-rights-quiz-form" class="bg-white rounded-lg shadow-md p-6" action="" method="post">
+        	{% csrf_token %}
+            <h2 class="text-xl font-semibold text-blue-600 mb-4">Answer the following questions to test your knowledge of Oklahoma voter rights:</h2>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">1. Are you eligible to vote in Oklahoma?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q1" value="a" class="mr-2">
+                    A) Yes, if I am a U.S. citizen, at least 18 years old, and a resident of Oklahoma.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q1" value="b" class="mr-2">
+                    B) Yes, but only if I have never been convicted of a felony.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q1" value="c" class="mr-2">
+                    C) Yes, if I am a resident of Oklahoma but under 18 years old.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q1" value="d" class="mr-2">
+                    D) No, I must live in the county where I vote.
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">2. What must you do to register to vote in Oklahoma?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q2" value="a" class="mr-2">
+                    A) I must fill out a registration form online or at my local election board office.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q2" value="b" class="mr-2">
+                    B) I can only register at my county courthouse.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q2" value="c" class="mr-2">
+                    C) I need a letter from a community leader to register.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q2" value="d" class="mr-2">
+                    D) No registration is necessary; I can vote in the next election automatically.
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">3. How can you check if you are already registered to vote in Oklahoma?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q3" value="a" class="mr-2">
+                    A) I can check my registration status online at the Oklahoma State Election Board website.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q3" value="b" class="mr-2">
+                    B) I need to go to my local post office to check my registration status.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q3" value="c" class="mr-2">
+                    C) I can only check by calling my local city hall.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q3" value="d" class="mr-2">
+                    D) I must wait for a voting card to be mailed to me before I know if I'm registered.
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">4. If you move to a new address within Oklahoma, what should you do?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q4" value="a" class="mr-2">
+                    A) You must update your voter registration with your new address before the election.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q4" value="b" class="mr-2">
+                    B) You don’t need to do anything; your registration automatically updates.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q4" value="c" class="mr-2">
+                    C) You can only vote at your old address for up to one year.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q4" value="d" class="mr-2">
+                    D) You need to re-register completely as a new voter in Oklahoma.
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">5. Do you need to show identification when you vote in Oklahoma?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q5" value="a" class="mr-2">
+                    A) Yes, you need to show a valid photo ID like a driver’s license or a state-issued ID card.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q5" value="b" class="mr-2">
+                    B) Yes, but only if you’re voting for the first time.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q5" value="c" class="mr-2">
+                    C) No, voter ID is not required in Oklahoma.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q5" value="d" class="mr-2">
+                    D) Only non-resident voters need to show ID.
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">6. What is the deadline for voter registration in Oklahoma?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q6" value="a" class="mr-2">
+                    A) Voter registration closes 25 days before the election.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q6" value="b" class="mr-2">
+                    B) Voter registration closes 30 days before the election.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q6" value="c" class="mr-2">
+                    C) Voter registration closes 10 days before the election.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q6" value="d" class="mr-2">
+                    D) You can register to vote on the same day as the election.
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">7. What are your rights as a voter in Oklahoma?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q7" value="a" class="mr-2">
+                    A) You have the right to vote without intimidation or interference.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q7" value="b" class="mr-2">
+                    B) You have the right to vote by mail if you are disabled or unable to visit a polling place.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q7" value="c" class="mr-2">
+                    C) You have the right to receive assistance at the polling place if you need help reading the ballot or filling it out.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q7" value="d" class="mr-2">
+                    D) All of the above.
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">8. How can you vote in Oklahoma if you are unable to go to a polling place on Election Day?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q8" value="a" class="mr-2">
+                    A) You can vote by absentee ballot if you meet the qualifications for early voting.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q8" value="b" class="mr-2">
+                    B) You can vote online from any location.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q8" value="c" class="mr-2">
+                    C) You can send in your vote via text message.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q8" value="d" class="mr-2">
+                    D) You must go to the polls on Election Day; no other options are allowed.
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">9. What is "early voting" in Oklahoma?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q9" value="a" class="mr-2">
+                    A) It is voting before Election Day, typically held on the Thursday and Friday before the election.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q9" value="b" class="mr-2">
+                    B) It is voting on Election Day at a special location.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q9" value="c" class="mr-2">
+                    C) It is voting by mail only.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q9" value="d" class="mr-2">
+                    D) It is only available to people who live in larger cities, not rural areas.
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">10. If you make a mistake on your ballot, what should you do?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q10" value="a" class="mr-2">
+                    A) Request a new ballot to correct your mistake.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q10" value="b" class="mr-2">
+                    B) You cannot fix your mistake once the ballot is filled out.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q10" value="c" class="mr-2">
+                    C) You should leave the mistake as is and submit the ballot.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q10" value="d" class="mr-2">
+                    D) You must contact the Oklahoma Election Board to report your mistake.
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">11. Can someone assist you if you have difficulty reading or marking your ballot?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q11" value="a" class="mr-2">
+                    A) Yes, you have the right to bring someone to help you, or an election official can assist.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q11" value="b" class="mr-2">
+                    B) No, you must vote independently without assistance.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q11" value="c" class="mr-2">
+                    C) Yes, but only if you have a disability and cannot vote on your own.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q11" value="d" class="mr-2">
+                    D) No, only people who speak English are allowed assistance.
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">12. What should you do if you encounter problems or face discrimination while voting in Oklahoma?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q12" value="a" class="mr-2">
+                    A) You should contact the Oklahoma State Election Board or call the voter assistance hotline immediately.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q12" value="b" class="mr-2">
+                    B) You should leave the polling place and not attempt to vote again.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q12" value="c" class="mr-2">
+                    C) You should not complain, as the problem may not be serious.
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q12" value="d" class="mr-2">
+                    D) You can only report the issue to a community leader or local politician.
+                </label>
+            </div>
+
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full transition duration-300">Submit Quiz</button>
+            
+        </form>
+        <div class="mt-4 text-sm text-gray-500">
+            <p>This quiz is designed to help you understand your rights as a voter in Oklahoma. Your answers will help you gauge your understanding and are not intended as legal advice. For accurate legal information, please consult the Oklahoma State Election Board or a legal professional.</p>
+        </div>
+    </div>
+
+    <script>
+        /* Basic JavaScript to handle quiz submission and display (will need more robust logic)                         document.getElementById('-rights-quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault();                                 const formData = new FormData(this);
+            let aCount = 0;                                         let bCount = 0;
+            let cCount = 0;                                         let dCount = 0;
+                                                                    for (let i = 1; i <= 12; i++) {
+                const answer = formData.get(`q${i}`);                   if (answer === 'a') aCount++;
+                else if (answer === 'b') bCount++;                      else if (answer === 'c') cCount++;
+                else if (answer === 'd') dCount++;                  }
+                                                                    let resultText = "Your views align most closely with: ";
+            if (aCount > bCount && aCount > cCount && aCount > dCount) {                                                        resultText += "policies that focus on community-driven development, emphasizing government investment in infrastructure, education, and tribal sovereignty, especially in underdeveloped areas. You may prefer Democratic platforms that emphasize social programs, expanded healthcare, and government support for Native American and rural communities.";
+            } else if (bCount > aCount && bCount > cCount && bCount > dCount) {
+                resultText += "market-driven solutions with a focus on business incentives, tax cuts, and less government intervention in individual matters. You may align with Republican platforms that emphasize deregulation, lower taxes, and encouraging private-sector growth in underserved areas.";
+            } else if (cCount > aCount && cCount > bCount && cCount > dCount) {
+                resultText += "policies that focus on sustainability, environmentally friendly development, and self-sufficiency in rural and Native American communities. You may find common ground with progressive or centrist policies that support green initiatives and long-term economic independence.";
+            } else {                                                    resultText += "policies that align with autonomy and independent decision-making for communities. You may support policies that give local governments and individual communities more control over their economic and social affairs, with a focus on less reliance on the state or federal government.";
+            }
+
+            document.getElementById('quiz-results').innerText = resultText;
+        });
+*/
+    </script>
+{% endblock %}
+
+{% block footer_site_name %}Second Chance Movement Inc.{% endblock %}
+

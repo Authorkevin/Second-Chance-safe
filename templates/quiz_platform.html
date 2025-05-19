@@ -1,0 +1,262 @@
+{% extends 'base.html' %}
+
+{% block title %}Political Platform Quiz{% endblock %}
+
+{% block site_title %}Second Chance Movement{% endblock %}
+
+{% block content %}
+    <section class="bg-yellow-50 py-8 rounded-lg shadow-md mb-8">
+        <div class="container mx-auto text-center">
+            <h1 class="text-2xl font-semibold text-gray-700">Political Platform Quiz</h1>
+            <p class="text-gray-600 mt-2">Discover which political platform aligns best with your community's needs in Oklahoma.</p>
+        </div>
+    </section>
+
+    <div class="container mx-auto py-6">
+        <form id="platform-quiz-form" class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold text-yellow-600 mb-4">Answer the following questions based on your preferences for your community's future:</h2>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">1. What should be the primary focus of the state government in addressing the needs of rural communities?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q1" value="a" class="mr-2">
+                    A) Invest in infrastructure improvements, including roads and healthcare facilities
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q1" value="b" class="mr-2">
+                    B) Provide tax incentives for big businesses to create jobs
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q1" value="c" class="mr-2">
+                    C) Promote educational programs and vocational training for local youth
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q1" value="d" class="mr-2">
+                    D) Increase agricultural subsidies to support farmers
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">2. How do you feel about the state's role in supporting Native American reservations?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q2" value="a" class="mr-2">
+                    A) The state should actively support tribal sovereignty and respect treaties
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q2" value="b" class="mr-2">
+                    B) The state should prioritize economic development on reservations, even if it means limiting some sovereignty
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q2" value="c" class="mr-2">
+                    C) The state should focus on ensuring tribes benefit from the same economic policies as the rest of the state
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q2" value="d" class="mr-2">
+                    D) The state should focus on reducing the amount of government intervention in tribal matters
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">3. What is the most important issue for urban communities in Oklahoma?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q3" value="a" class="mr-2">
+                    A) Affordable housing and access to quality healthcare services
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q3" value="b" class="mr-2">
+                    B) Increasing police funding and improving public safety
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q3" value="c" class="mr-2">
+                    C) Expanding public transportation and improving infrastructure
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q3" value="d" class="mr-2">
+                    D) Fostering business growth to increase jobs in the private sector
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">4. What role should the state play in supporting the Hispanic population in Oklahoma?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q4" value="a" class="mr-2">
+                    A) The state should ensure access to education, healthcare, and equal employment opportunities for all, regardless of immigration status
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q4" value="b" class="mr-2">
+                    B) The state should emphasize policies to secure borders and limit immigration
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q4" value="c" class="mr-2">
+                    C) The state should offer specific support for businesses owned by Hispanic Oklahomans
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q4" value="d" class="mr-2">
+                    D) The state should provide resources to ensure Hispanic students succeed in schools and higher education
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">5. What is your stance on funding for education in Oklahoma's rural areas?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q5" value="a" class="mr-2">
+                    A) Increase state funding for schools in rural communities to ensure equal access to quality education
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q5" value="b" class="mr-2">
+                    B) Implement voucher systems so rural families can choose their schools
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q5" value="c" class="mr-2">
+                    C) Focus on private-sector partnerships to fund education in rural areas
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q5" value="d" class="mr-2">
+                    D) Reduce state funding and give more control to local communities to manage their schools
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">6. How should the state handle issues related to healthcare in undeveloped areas of Oklahoma?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q6" value="a" class="mr-2">
+                    A) Expand Medicaid to provide more healthcare coverage for rural and underserved populations
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q6" value="b" class="mr-2">
+                    B) Focus on market-based healthcare solutions to encourage competition and lower costs
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q6" value="c" class="mr-2">
+                    C) Increase funding for community health programs and clinics in rural areas
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q6" value="d" class="mr-2">
+                    D) Implement tax breaks for healthcare providers to incentivize services in underserved communities
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">7. What is the best approach to economic development in underdeveloped communities of Oklahoma?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q7" value="a" class="mr-2">
+                    A) Invest in small businesses and entrepreneurship within local communities
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q7" value="b" class="mr-2">
+                    B) Provide tax cuts to attract large businesses and industries to the area
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q7" value="c" class="mr-2">
+                    C) Focus on agriculture and natural resources to stimulate local economies
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q7" value="d" class="mr-2">
+                    D) Create job training and workforce development programs for the unemployed
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">8. What should the state's role be in addressing the economic struggles of Native American tribes?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q8" value="a" class="mr-2">
+                    A) The state should work with tribal governments to develop joint economic development plans
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q8" value="b" class="mr-2">
+                    B) The state should provide direct financial aid to tribes to help with poverty alleviation
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q8" value="c" class="mr-2">
+                    C) The state should reduce regulations and give tribes more freedom to manage their own economies
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q8" value="d" class="mr-2">
+                    D) The state should prioritize the expansion of gaming and other revenue-generating activities on tribal lands
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">9. In your opinion, what should be the state's approach to infrastructure in rural and undeveloped communities?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q9" value="a" class="mr-2">
+                    A) Invest heavily in improving roads, bridges, and access to reliable internet
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q9" value="b" class="mr-2">
+                    B) Leave infrastructure development to private companies and local governments
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q9" value="c" class="mr-2">
+                    C) Focus on developing energy-efficient and environmentally sustainable infrastructure
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q9" value="d" class="mr-2">
+                    D) Reduce state spending on infrastructure projects and focus on local government solutions
+                </label>
+            </div>
+
+            <div class="mb-6">
+                <p class="font-semibold text-gray-700 mb-2">10. What should be done to support the agricultural community in Oklahoma’s rural towns?</p>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q10" value="a" class="mr-2">
+                    A) Increase federal and state funding for agricultural research and farming innovation
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q10" value="b" class="mr-2">
+                    B) Encourage a shift to organic farming and sustainable agricultural practices
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q10" value="c" class="mr-2">
+                    C) Offer more support for farmers transitioning to renewable energy sources or technology
+                </label>
+                <label class="block text-gray-600 mb-2">
+                    <input type="radio" name="q10" value="d" class="mr-2">
+                    D) Lower taxes on agricultural products and provide direct subsidies to struggling farmers
+                </label>
+            </div>
+
+            <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-full transition duration-300">Submit Quiz</button>
+            <div id="quiz-results" class="mt-6 font-semibold text-gray-700">
+                </div>
+        </form>
+        <div class="mt-4 text-sm text-gray-500">
+            <p>This quiz is designed to help you understand which political platform aligns best with your community's needs. Your answers will be used to provide a general alignment and are not intended as definitive political advice.</p>
+        </div>
+    </div>
+
+    <script>
+        // Basic JavaScript to handle quiz submission and display (will need more robust logic)
+        document.getElementById('platform-quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            let aCount = 0;
+            let bCount = 0;
+            let cCount = 0;
+            let dCount = 0;
+
+            for (let i = 1; i <= 10; i++) {
+                const answer = formData.get(`q${i}`);
+                if (answer === 'a') aCount++;
+                else if (answer === 'b') bCount++;
+                else if (answer === 'c') cCount++;
+                else if (answer === 'd') dCount++;
+            }
+
+            let resultText = "Your views align most closely with: ";
+            if (aCount > bCount && aCount > cCount && aCount > dCount) {
+                resultText += "policies that focus on community-driven development, emphasizing government investment in infrastructure, education, and tribal sovereignty, especially in underdeveloped areas. You may prefer Democratic platforms that emphasize social programs, expanded healthcare, and government support for Native American and rural communities.";
+            } else if (bCount > aCount && bCount > cCount && bCount > dCount) {
+                resultText += "market-driven solutions with a focus on business incentives, tax cuts, and less government intervention in individual matters. You may align with Republican platforms that emphasize deregulation, lower taxes, and encouraging private-sector growth in underserved areas.";
+            } else if (cCount > aCount && cCount > bCount && cCount > dCount) {
+                resultText += "policies that focus on sustainability, environmentally friendly development, and self-sufficiency in rural and Native American communities. You may find common ground with progressive or centrist policies that support green initiatives and long-term economic independence.";
+            } else {
+                resultText += "policies that align with autonomy and independent decision-making for communities. You may support policies that give local governments and individual communities more control over their economic and social affairs, with a focus on less reliance on the state or federal government.";
+            }
+
+            document.getElementById('quiz-results').innerText = resultText;
+        });
+    </script>
+{% endblock %}
+
+{% block footer_site_name %}Second Chance Movement{% endblock %}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Second Chance Movement{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* You can add custom CSS here if needed, but try to use Tailwind classes as much as possible */
+    </style>
+    {% block head %}
+        {% endblock %}
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <nav class="bg-white shadow py-4">
+        <div class="container mx-auto flex items-center justify-between px-4">
+            <a href="/" class="text-xl font-bold text-gray-700 hover:text-gray-800">
+                {% block site_title %}Second Chance Movement{% endblock %}
+            </a>
+            <div class="hidden md:flex space-x-4">
+                <a href="/about/" class="text-gray-700 hover:text-indigo-600">About</a>
+                <a href="/voter-registration/" class="text-gray-700 hover:text-indigo-600">Voting Resources</a>
+                <a href="/quizzes/" class="text-gray-700 hover:text-indigo-600">Quizzes</a>
+                <a href="/marketplace/" class="text-gray-700 hover:text-indigo-600">Marketplace</a>
+                <a href="/blog/" class="text-gray-700 hover:text-indigo-600">Blog</a>
+                <a href="/community/" class="text-gray-700 hover:text-indigo-600">Community</a>
+                <a href="/donate/" class="text-gray-700 hover:text-indigo-600">Donate</a>
+                <a href="/volunteer/" class="text-gray-700 hover:text-indigo-600">Volunteer</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="focus:outline-none">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="hidden md:hidden bg-gray-100 shadow-md mt-2 py-2" id="mobile-menu">
+            <a href="/about/" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">About</a>
+            <a href="/voter-registration/" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Voting Resources</a>
+            <a href="/quizzes/" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Quizzes</a>
+            <a href="/marketplace/" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Marketplace</a>
+            <a href="/blog/" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Blog</a>
+            <a href="/community/" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Community</a>
+            <a href="/donate/" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Donate</a>
+            <a href="/volunteer/" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Volunteer</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto py-8 px-4">
+        {% block content %}
+            {% endblock %}
+    </div>
+
+    <footer class="bg-gray-200 py-6 text-center text-gray-700 text-sm">
+        &copy; {% now "Y" %} {% block footer_site_name %}Second Chance Movement{% endblock %}. All rights reserved.
+        </footer>
+
+    <script>
+        // Basic JavaScript for toggling the mobile menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+
+    {% block scripts %}
+        {% endblock %}
+
+</body>
+</html>

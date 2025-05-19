@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Oklahoma Voter Registration Information{% endblock %}
+
+{% block site_title %}Second Chance Movement{% endblock %}
+
+{% block content %}
+    <section class="bg-indigo-50 py-8 rounded-lg shadow-md mb-8">
+        <div class="container mx-auto text-center">
+            <h1 class="text-2xl font-semibold text-gray-700">Oklahoma Voter Registration Information</h1>
+            <p class="text-gray-600 mt-2">Everything you need to know to register to vote in Oklahoma and make your voice heard.</p>
+        </div>
+    </section>
+
+    <div class="container mx-auto py-6">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Understanding Voter Registration in Oklahoma</h2>
+            <p class="text-gray-700 mb-4">With a little planning and preparation, you can make sure your vote counts. Registering to vote in Oklahoma is simple, and there are multiple ways to do it.</p>
+            <p class="text-gray-700 mb-4">Applications can be accepted anytime, but to be eligible to vote in any certain election, applications have to be received <span class="font-semibold">25 days prior to the date of that election</span>.</p>
+            <p class="text-gray-700 mb-4">You can find voter registration deadlines and election events on the <a href="https://oklahoma.gov/elections.html" target="_blank" class="text-indigo-600 hover:text-indigo-800">State Election Board Website</a>.</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Voter Eligibility</h2>
+            <p class="text-gray-700 mb-4">You can register to vote if you are a citizen of the United States, a resident of the State of Oklahoma, and at least 18 years old or meet the age requirement to pre-register.</p>
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">Pre-registration</h3>
+            <p class="text-gray-700 mb-4">Persons who are at least 17½ years old may pre-register to vote in Oklahoma if they meet all eligibility requirements. Applicants who pre-register cannot vote until they turn 18 years old and the application has been approved by the applicant's County Election Board Secretary. Applicants will be mailed a Voter ID card upon approval of their registration.</p>
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">Voting with a Background</h3>
+            <p class="text-gray-700 mb-4">If you have completed your sentence of court-mandated calendar days, including any term of incarceration, parole, probation, or supervision ordered by any court, you may register to vote.</p>
+            <p class="text-gray-700 mb-4">A person with a felony conviction, who has been pardoned, may register to vote.</p>
+            <p class="text-gray-700 mb-4">If you are in jail awaiting trial or were convicted of a misdemeanor in Oklahoma, you are eligible to vote. If you are in jail or incarcerated for a misdemeanor, but a registered voter, you must vote by absentee ballot.</p>
+            <p class="text-gray-700 mb-4">You must request an absentee ballot in advance from your designated County Election Board.</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Methods to Register</h2>
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">To Register by Mail</h3>
+            <p class="text-gray-700 mb-4">Fill out a Voter Registration Application using the <a href="https://oklahoma.gov/elections/ovp.html" target="_blank" class="text-indigo-600 hover:text-indigo-800">OK Voter Portal “wizard.”</a> (You must print, sign, and mail or hand deliver the application to your County Election Board to complete the process.)</p>
+            <p class="text-gray-700 mb-4">Download a Voter Registration Application from the <a href="https://oklahoma.gov/elections.html" target="_blank" class="text-gray-800 hover:text-indigo-900">State Election Board website</a>. Applications are also available at your County Election Board, most tag agencies, libraries, and post offices.</p>
+            <p class="text-gray-700 mb-4">Applications must be mailed or hand delivered to your County Election Board to complete the process.</p>
+
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">Sites to Register In-Person</h3>
+            <p class="text-gray-700 mb-4">There are sites that will allow you to register in-person including:</p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li>Your County Election Board office</li>
+                <li>At your local tag agency when you apply for, update, or renew your Driver License or State ID. Submitted applications will be mailed to the State Election Board by the agent at no cost.</li>
+                <li>Select public assistance agencies when you apply for, update, or renew services. Submitted applications will be mailed to the State Election Board by the agent at no cost.</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">Uniformed and Overseas Citizens</h3>
+            <p class="text-gray-700 mb-4">If you are currently overseas, visit <a href="https://oklahoma.gov/elections/voters/absentee-voting/military-and-overseas-voters.html" target="_blank" class="text-indigo-600 hover:text-indigo-800">Oklahoma's Military/Overseas Voters page</a> for special instructions.</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Voting Resources</h2>
+            <p class="text-gray-700 mb-4">Knowing where to look is half the battle of being an informed voter. Check out these resources:</p>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><a href="https://oklahoma.gov/elections.html" target="_blank" class="text-indigo-600 hover:text-indigo-800">Oklahoma State Election Board</a></li>
+                <li><a href="https://www.usvotefoundation.org/" target="_blank" class="text-indigo-600 hover:text-indigo-800">US Vote Foundation</a></li>
+                <li><a href="https://oklahoma.gov/elections/ovp.html" target="_blank" class="text-indigo-600 hover:text-indigo-800">OK Voter Portal</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer_site_name %}Second Chance Movement{% endblock %}
