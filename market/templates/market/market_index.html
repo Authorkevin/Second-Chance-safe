@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load market_filters %}
+
+{% block title %}Marketplace{% endblock %}
+{% block site_title %}Second Chance Movement{% endblock %}
+
+{% block content %}
+    <section class="bg-yellow-50 py-8 rounded-lg shadow-md mb-8">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold text-yellow-700">Welcome to the Marketplace</h1>
+            <p class="text-gray-600 mt-2">Discover unique art and support our community.</p>
+        </div>
+    </section>
+
+    <div class="container mx-auto py-6">
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold text-yellow-600 mb-4">Shop by Category</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                {% for category in categories %}
+                    <a href="{% url 'market_category' category.slug %}" class="bg-white rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow duration-300 text-gray-700 hover:text-yellow-700 font-medium">
+                        {{ category.name }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for item in items %}
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:scale-[1.02]">
+                    <a href="{% url 'market_detail' item.slug %}">
+                        <img src="{{ item.image }}" alt="{{ item.name }}" class="w-full h-48 object-cover">
+                    </a>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-yellow-600 mb-2">
+                            <a href="{% url 'market_detail' item.slug %}" class="hover:text-yellow-800 transition-colors duration-200">
+                                {{ item.name }}
+                            </a>
+                        </h2>
+                        <p class="text-gray-700 mb-4">{{ item.description|truncatechars:100 }}</p>
+                        <p class="text-gray-900 font-bold">${{ item.price|floatformat:2 }}</p>
+                         <div class="mt-4 flex justify-between items-center">
+                            <a href="{% url 'market_detail' item.slug %}" class="text-yellow-500 hover:text-yellow-700 font-medium transition-colors duration-200">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 col-span-full" role="alert">
+                    <p class="font-bold">No items available.</p>
+                    <p>Check back later for new additions!</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

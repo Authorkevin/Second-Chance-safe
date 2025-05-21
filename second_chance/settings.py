@@ -22,6 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-_#x%pb63)ip2a20ca)i&*!xv2-=yvr=nzvps23&av&&-p*zyhv'
 
+STRIPE_PUBLIC_KEY = 'your_stripe_public_key'
+
+STRIPE_SECRET_KEY = 'your_stripe_secret_key'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -38,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'market',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -103,6 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'users.CustomUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
