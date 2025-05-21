@@ -27,7 +27,11 @@
                 <a href="/community/" class="text-gray-700 hover:text-indigo-600">Community</a>
                 <a href="/donate/" class="text-gray-700 hover:text-indigo-600">Donate</a>
                 <a href="/volunteer/" class="text-gray-700 hover:text-indigo-600">Volunteer</a>
+                {% if user.is_authenticated %}
+                <a href="/users/logout/" class="text-gray-700 hover:text-indigo-600">Logout</a>
+                {% else %}
                 <a href="/users/login/" class="text-gray-700 hover:text-indigo-600">Login</a>
+                {% endif %}
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="focus:outline-none">
@@ -46,7 +50,11 @@
             <a href="/community/" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Community</a>
             <a href="/donate/" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Donate</a>
             <a href="/volunteer/" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Volunteer</a>
+            {% if user.is_authenticated %}
+                <a href="/users/logout/" class="block px-4 py-2 text-gray-700 hover:text-indigo-600">Logout</a>
+                {% else %}
             <a href="/users/login/" class="block px-4 py-2 text-gray-700 hover:text-indigo-600">Login</a>
+            {% endif %}
         </div>
     </nav>
 
