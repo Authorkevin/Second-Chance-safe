@@ -12,6 +12,14 @@
         </div>
     </section>
 
+    {% if user.is_authenticated %}
+                        <p class="text-gray-800 text-sm">
+                            <a href="{% url 'checkout' %}" class="text-yellow-500 hover:text-yellow-700 font-medium transition-colors duration-200">
+                                Your Cart
+                            </a>
+                        </p>
+    {% endif %}
+
     <div class="container mx-auto py-6">
         <div class="mb-8">
             <h2 class="text-2xl font-semibold text-yellow-600 mb-4">Shop by Category</h2>

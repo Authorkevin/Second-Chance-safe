@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Community Topics{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-3xl font-bold text-gray-800">Topics</h2>
+        <a href="{% url 'community:create_topic' %}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Create New Topic</a>
+    </div>
+
+    {% if topics %}
+        <div class="space-y-4">
+            {% for topic in topics %}
+                <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+                    <h5 class="text-xl font-semibold text-indigo-600 hover:text-indigo-800 mb-1">
+                        <a href="{% url 'community:topic_detail' topic.id %}">{{ topic.title }}</a>
+                    </h5>
+                    <small class="text-sm text-gray-600">
+                        By: {{ topic.created_by.username }} | 
+                        Created: {{ topic.created_at|timesince }} ago | 
+                        Last updated: {{ topic.updated_at|timesince }} ago
+                    </small>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-gray-700 italic">No topics yet. Be the first to create one!</p>
+    {% endif %}
+</div>
+{% endblock %}

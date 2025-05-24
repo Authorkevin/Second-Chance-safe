@@ -10,7 +10,7 @@ class OrderItemInline(admin.TabularInline):  # To display OrderItems within Orde
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['order_number', 'user', 'total_price', 'created_at', 'order_status']  # Display these fields in the list view
+    list_display = ['order_number', 'user', 'first_name', 'last_name', 'total_price', 'created_at', 'order_status']  # Display these fields in the list view
     list_filter = ['user', 'created_at', 'order_status']  # Add filters for these fields
     inlines = [OrderItemInline] # display order items
     search_fields = ['order_number', 'user__username']  # Enable search
@@ -18,7 +18,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_editable = ['order_status']
     fieldsets = (
         ('Order Details', {
-            'fields': ('order_number','user', 'total_price', 'created_at', 'shipping_address', 'order_status')
+            'fields': ('order_number','user', 'first_name', 'last_name', 'total_price', 'created_at', 'shipping_address', 'order_status')
         }),
     )
     readonly_fields = ('order_number', 'created_at', 'total_price')  # These fields are not editable

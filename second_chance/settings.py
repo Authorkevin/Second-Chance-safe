@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-_#x%pb63)ip2a20ca)i&*!xv2-=yvr=nzvps23&av&&-p*zyhv'
 
-STRIPE_PUBLIC_KEY = 'your_stripe_public_key'
+STRIPE_PUBLIC_KEY = YOUR_STRIPE_PUBLUC_KEY
 
-STRIPE_SECRET_KEY = 'your_stripe_secret_key'
+STRIPE_SECRET_KEY = YOUR_STRIPE_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'blog',
     'market',
     'users',
+    'community',
 ]
 
 MIDDLEWARE = [
@@ -110,6 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
+LOGIN_URL = 'users:login'
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
@@ -132,3 +134,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'klastic7731@gmail.com'  # Replace with your Gmail address
+EMAIL_HOST_PASSWORD = YOUR_MAIL_APP_PASSWORD      # Replace with your Gmail password
+DEFAULT_FROM_EMAIL = 'klastic7731@gmail.com' # Add this

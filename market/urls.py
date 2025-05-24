@@ -22,8 +22,10 @@ urlpatterns = [
     path('payment/', views.payment, name='payment'),
 
 # Order confirmation (displays after successful purchase)
-    path('order/confirmation/<int:order_id>/', views.order_confirmation, name='order_confirmation'),
+    path('order/confirmation/<str:order_id>/', views.order_confirmation, name='order_confirmation'),
 
 # Leave a review (handles submitting a review for an item)
     path('item/<slug:item_slug>/review/', views.market_review, name='market_review'),
+    
+    path('payment/success/', views.payment_success, name='payment_success'),
 ]

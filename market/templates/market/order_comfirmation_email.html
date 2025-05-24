@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+</head>
+<body>
+    <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto;">
+        <h1 style="color: #4CAF50; text-align: center;">Thank You for Your Order!</h1>
+        <p style="font-size: 16px;">Dear {{ user.username }},</p>
+        <p style="font-size: 16px;">This email confirms that we have received your order (Order #{{ order.order_number }}) and it is being processed.</p>
+        <p style="font-size: 16px;">Order Details:</p>
+        <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+            {% for order_item in order.orderitem_set.all %}
+                <li style="font-size: 16px; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 5px;">
+                    {{ order_item.item.name }} x {{ order_item.quantity }} - ${{ order_item.subtotal|floatformat:2 }}
+                </li>
+            {% endfor %}
+        </ul>
+        <p style="font-size: 16px; font-weight: bold;">Total: ${{ order.total_price|floatformat:2 }}</p>
+        <p style="font-size: 16px;">Shipping Address: {{ order.shipping_address }}</p>
+        <p style="font-size: 16px;">If you have any questions, please contact us at 2ndchancemovementok@gmail.com.</p>
+        <p style="font-size: 16px; margin-top: 20px;">Sincerely,<br>The Second Chance Movement</p>
+    </div>
+</body>
+</html>

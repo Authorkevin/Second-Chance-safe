@@ -12,3 +12,13 @@ class ReviewForm(forms.ModelForm):
             'text': 'Your Review',
         }
 
+
+class PaymentForm(forms.Form):
+    shipping_address = forms.CharField(
+        widget=forms.Textarea(attrs={
+            'class': 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+            'rows': 4
+        }),
+        label='Shipping Address',
+        required=True
+    )

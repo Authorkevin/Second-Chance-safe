@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Create New Topic{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Create New Topic</h2>
+    
+    <form method="post" class="bg-white shadow-md rounded-lg p-6">
+        {% csrf_token %}
+        
+        <div class="mb-4">
+            <label for="{{ form.title.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                {{ form.title.label }}
+            </label>
+            <input type="text" name="{{ form.title.name }}" id="{{ form.title.id_for_label }}"
+                   class="w-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                   maxlength="{{ form.title.field.max_length }}" required>
+            {% if form.title.help_text %}
+                <p class="text-xs text-gray-500 mt-1">{{ form.title.help_text }}</p>
+            {% endif %}
+            {% for error in form.title.errors %}
+                <p class="text-red-500 text-xs mt-1">{{ error }}</p>
+            {% endfor %}
+        </div>
+        
+        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mt-3">Create Topic</button>
+    </form>
+</div>
+{% endblock %}

@@ -40,11 +40,14 @@ class Review(models.Model):
         return f"Review by {self.user.username} on {self.item.name}"
 
 class Order(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=75, null=True, blank=True)
+    last_name = models.CharField(max_length=75, null=True, blank=True)
     items = models.ManyToManyField(Item, through='OrderItem')  # Use ManyToManyField with through
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     shipping_address = models.TextField()
+    stripe_checkout_id = models.CharField(max_length=255, null=True, blank=True)
     order_number = models.CharField(max_length=20, unique=True, null=True, blank=True)
     ORDER_STATUS_CHOICES = (
         ('pending', 'Pending'),
