@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-_#x%pb63)ip2a20ca)i&*!xv2-=yvr=nzvps23&av&&-p*zyhv'
 
-STRIPE_PUBLIC_KEY = 'pk_test_51RRQSpQxyNZ47Ut4YU28D18vpE57KJOmWUeRVtukzCsDJrnXBV53GWY1L8WuVG7Lmnh0VBkGk0ugNkP4pyVIfWgs00NnQ17AUj'
+STRIPE_PUBLIC_KEY = YOUR_STRIPE_PUBLIC_KEY
 
-STRIPE_SECRET_KEY = 'sk_test_51RRQSpQxyNZ47Ut4XXMDyk5wNERJkV9Blw6SknxWdvQnImgUqlQpAZmKeo44rqbAJ9mbl0rYY14mUZqn3W64nO7c008jHW35DV'
+STRIPE_SECRET_KEY = <YOUR_STRIPE_SECRET_KEY>
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -142,5 +142,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'klastic7731@gmail.com'  # Replace with your Gmail address
-EMAIL_HOST_PASSWORD = 'jbxp ncfa lxod xmhl'      # Replace with your Gmail password
+EMAIL_HOST_PASSWORD = YOUR_MAIL_APP_PASSWORD      # Replace with your Gmail password
 DEFAULT_FROM_EMAIL = 'klastic7731@gmail.com' # Add this
