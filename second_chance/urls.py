@@ -24,6 +24,7 @@ urlpatterns = [
     path('market/', include('market.urls')),
     path('users/', include('users.urls')),
     path('community/', include('community.urls')),
+    path('donate/', include('donate.urls', namespace='donate')),
     path('', views.home, name='home'),
     path('voter-registration/', views.voter_registration, name='voter_registration'),
     path('quizzes/', views.quizzes, name='quizzes'),
