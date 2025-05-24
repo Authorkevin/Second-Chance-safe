@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Thank You for Volunteering!{% endblock %}
+
+{% block site_title %}Thank You! - Volunteer Program{% endblock %}
+
+{% block content %}
+<section class="bg-green-50 py-12 rounded-lg shadow-md mb-8">
+    <div class="container mx-auto text-center px-4">
+        <svg class="w-16 h-16 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <h1 class="text-3xl font-semibold text-gray-800">Thank You for Signing Up!</h1>
+        <p class="text-gray-700 mt-3 text-lg">We appreciate your willingness to help and join our volunteer team.</p>
+        <p class="text-gray-600 mt-2">Someone from our team will contact you when volunteering opportunities that match your availability and skills become available.</p>
+        {% comment %} The success message from the view will be displayed here by the messages framework if base.html includes it, or it can be explicitly shown if needed.
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                <p class="text-green-600 mt-4 text-md">{{ message }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endcomment %}
+        <div class="mt-8">
+            <a href="{% url 'home' %}" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300">
+                Return to Homepage
+            </a>
+        </div>
+    </div>
+</section>
+
+<div class="container mx-auto py-6 px-4 text-center">
+    <p class="text-gray-600">In the meantime, feel free to explore more about <a href="{% url 'home' %}" class="text-yellow-600 hover:underline">our mission and other ways to get involved</a>.</p>
+</div>
+{% endblock %}
+
+{% block footer_site_name %}Second Chance Movement{% endblock %}
